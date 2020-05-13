@@ -4,22 +4,19 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use PHPUnit\Framework\TestCase;
-
-
+use Tests\TestCase;
 
 class StackTest extends TestCase
 {
-    public function testPushAndPop()
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function testExample()
     {
-        $stack = [];
-        $this->assertEquals(0, count($stack));
+        $response = $this->get('/');
 
-        array_push($stack, 'foo');
-        $this->assertEquals('foo', $stack[count($stack)-1]);
-        $this->assertEquals(1, count($stack));
-
-        $this->assertEquals('foo', array_pop($stack));
-        $this->assertEquals(0, count($stack));
+        $response->assertStatus(200);
     }
 }
